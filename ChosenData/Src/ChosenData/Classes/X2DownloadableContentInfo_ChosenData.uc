@@ -16,10 +16,40 @@ class X2DownloadableContentInfo_ChosenData extends X2DownloadableContentInfo;
 /// create without the content installed. Subsequent saves will record that the content was installed.
 /// </summary>
 static event OnLoadedSavedGame()
-{}
+{
+	CheckUpdateOrCreateNewGameState();
+}
 
 /// <summary>
 /// Called when the player starts a new campaign while this DLC / Mod is installed
 /// </summary>
 static event InstallNewCampaign(XComGameState StartState)
-{}
+{
+	CheckUpdateOrCreateNewGameState();
+}
+
+
+static final function CheckUpdateOrCreateNewGameState()
+{
+	local XComGameState_ChosenData Information;
+    local XComGameState NewGameState;
+    local XComGameStateHistory History;
+
+    History = `XCOMHISTORY;
+    Information = XComGameState_SquadStats(History.GetSingleGameStateObjectForClass(class 'XComGameState_ChosenData', true));
+
+    NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Check, create or Update Chosen Information");
+
+    if (Log == none)
+    {
+        Information = XComGameState_ChosenData(NewGameState.CreateNewStateObject(class'XComGameState_ChosenData'));
+    }
+    else
+    {
+        Information = XComGameState_ChosenData(NewGameState.ModifyStateObject(Information.Class, Information.ObjectID));
+    }
+
+    Information.UpdateChosenInformation();
+
+    `GAMERULES.SubmitGameState(NewGameState);
+}
