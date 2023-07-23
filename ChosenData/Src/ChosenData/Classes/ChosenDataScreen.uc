@@ -3,7 +3,7 @@ class ChosenDataScreen extends UIPersonnel dependson(XComGameState_ChosenData);
 
 var UIPersonnel ChosenDataList;
 var UINavigationHelp NavHelp;
-var SquadScreen_ListItem LastHighlighted;
+var ChosenData_ListItem LastHighlighted;
 
 
 simulated function InitChosenDataScreen()
@@ -82,7 +82,7 @@ simulated function PopulateListInstantly() {
 		m_kList.OnItemClicked = OnListItemClicked;
 		Spawn(class'ChosenData_ListItem', m_kList.itemContainer).InitListItem(Info.ChosenDocs[i]);
 	}
-	MC.FunctionString("SetEmptyLabel", Info.ChosenData.Length == 0 ? "No Chosen Encountered": "");
+	MC.FunctionString("SetEmptyLabel", Info.ChosenDocs.Length == 0 ? "No Chosen Encountered": "");
 }
 
 simulated function PopulateListSequentially(UIPanel Control) {
@@ -90,7 +90,6 @@ simulated function PopulateListSequentially(UIPanel Control) {
 }
 
 simulated function UpdateData() {
-	local XComGameState_SquadStats SquadStats;
 	local XComGameStateHistory History;
 	local XComGameState_Unit Unit;
 	local int i;

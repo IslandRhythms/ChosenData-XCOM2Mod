@@ -16,7 +16,7 @@ var string m_StrStatus;
 
 var bool bIsFocussed;
 
-simulated function ChosenData_ListItem InitListItem(SquadDetails Entry)
+simulated function ChosenData_ListItem InitListItem(ChosenFiles Entry)
 {
 
 	InitPanel(); // must do this before adding children or setting data

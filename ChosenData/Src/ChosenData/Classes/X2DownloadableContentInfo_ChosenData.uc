@@ -36,11 +36,11 @@ static final function CheckUpdateOrCreateNewGameState()
     local XComGameStateHistory History;
 
     History = `XCOMHISTORY;
-    Information = XComGameState_SquadStats(History.GetSingleGameStateObjectForClass(class 'XComGameState_ChosenData', true));
+    Information = XComGameState_ChosenData(History.GetSingleGameStateObjectForClass(class 'XComGameState_ChosenData', true));
 
     NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Check, create or Update Chosen Information");
 
-    if (Log == none)
+    if (Information == none)
     {
         Information = XComGameState_ChosenData(NewGameState.CreateNewStateObject(class'XComGameState_ChosenData'));
     }
