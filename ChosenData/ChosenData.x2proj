@@ -19,7 +19,7 @@
     <Content Include="Config\XComUI.ini">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Localization\ChosenDocs.int">
+    <Content Include="Localization\ChosenData.int">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ReadMe.txt" />

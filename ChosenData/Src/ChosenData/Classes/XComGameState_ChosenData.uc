@@ -65,7 +65,7 @@ function UpdateChosenInformation() {
 				Detail.AbilityDescription = TraitTemplate.LocHelpText;
 				File.Weaknesses.AddItem(Detail);
 			}
-			File.ChosenLogo = "img://gfxTacticalHUD.chosen_logo";
+			File.ChosenLogo = "gfxTacticalHUD.chosen_logo";
 			ChosenDocs.AddItem(File);
 		} else { // update info
 			ChosenDocs[Index].Strengths.Length = 0;
