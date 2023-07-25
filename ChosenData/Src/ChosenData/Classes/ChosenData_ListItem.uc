@@ -34,7 +34,7 @@ simulated function ChosenData_ListItem InitListItem(ChosenFiles Entry)
 
 	UpdateData(); // this is really 'set initial data' as the listitem gets destroyed and recreateds
 
-	SetHudHeadIcon(Data.ChosenIcon);
+	SetHudHeadIcon(Data.ChosenLogo);
 
 	return self;
 }
@@ -97,7 +97,7 @@ simulated function UpdateData()
 	FlagImage = Data.ChosenIcon;
 
 	//get and set display strings
-	UnitsName = Data.ChosenName;
+	UnitsName = Data.ChosenType;
 	// Active or Decomissioned
 	if (Data.bIsActive) {
 		Classification = "Active";
