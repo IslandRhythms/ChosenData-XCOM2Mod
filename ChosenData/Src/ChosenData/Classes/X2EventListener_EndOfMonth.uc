@@ -30,8 +30,11 @@ static function X2EventListenerTemplate DD_ChosenData_CreateListener_EndOfMonth(
 static function EventListenerReturn GetChosenInformation(Object EventData, Object EventSource, XComGameState GameState, Name Event, Object CallbackData)
 {
 	local XComGameState_ChosenData Information;
+	local XComGameState NewGameState;
 
+	NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Updating Chosen Information");
 	Information = XComGameState_ChosenData(`XCOMHISTORY.GetSingleGameStateObjectForClass(class 'XComGameState_ChosenData', true));
 	Information.UpdateChosenInformation();
+	`XCOMGAME.GameRuleset.SubmitGameState(NewGameState);
 	return ELR_NoInterrupt;
 }
