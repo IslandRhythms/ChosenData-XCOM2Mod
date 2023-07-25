@@ -28,6 +28,35 @@ static event InstallNewCampaign(XComGameState StartState)
 	CheckUpdateOrCreateNewGameState();
 }
 
+static event OnPostMission() {
+	local XComGameStateHistory History;
+	local XComGameState_BattleData BattleData;
+	local X2MissionTemplateManager MissionTemplateManager;
+	local X2MissionTemplate MissionTemplate;
+	local XComGameState NewGameState;
+	local XComGameState_ChosenData Information;
+
+	MissionTemplateManager = class'X2MissionTemplateManager'.static.GetMissionTemplateManager();
+	BattleData = XComGameState_BattleData(History.GetSingleGameStateObjectForClass(class'XComGameState_BattleData'));
+	MissionTemplate = MissionTemplateManager.FindMissionTemplate(BattleData.MapData.ActiveMission.MissionName);
+	NewGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Check, create or Update Chosen Information");
+	Information = XComGameState_ChosenData(History.GetSingleGameStateObjectForClass(class 'XComGameState_ChosenData', true));
+	Information = XComGameState_ChosenData(NewGameState.ModifyStateObject(Information.Class, Information.ObjectID));
+
+	if (MissionTemplate.DisplayName == "Defeat Chosen Warlock") {
+		Information.updateChosenActiveState("Warlock");
+		 `GAMERULES.SubmitGameState(NewGameState);
+	} else if (MissionTemplate.DisplayName == "Defeat Chosen Assassin") {
+		Information.updateChosenActiveState("Assassin");
+		 `GAMERULES.SubmitGameState(NewGameState);
+	} else if (MissionTemplate.DisplayName == "Defeat Chosen Hunter") {
+		Information.updateChosenActiveState("Hunter");
+		 `GAMERULES.SubmitGameState(NewGameState);
+	}
+	
+}
+
+
 
 static final function CheckUpdateOrCreateNewGameState()
 {

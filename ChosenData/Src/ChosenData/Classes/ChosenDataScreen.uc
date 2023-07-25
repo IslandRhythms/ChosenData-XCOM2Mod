@@ -30,9 +30,18 @@ simulated function OpenChosenDetails(ChosenData_ListItem Data) {
 	local Texture2D StaffPicture;
 	local int i;
 	Detail = Data.Data;
+	StrDetails = "Strengths:";
 	DialogData.eType = eDialog_Normal;
 	DialogData.strTitle = Detail.ChosenName;
 	DialogData.strAccept = class'UIDialogueBox'.default.m_strDefaultAcceptLabel;
+
+	for (i = 0; i < Detail.Strengths.Length; i++) {
+		StrDetails = StrDetails $ "\n=====" $ Detail.Strengths[i].AbilityName $ "=====\n" $ Detail.Strengths[i].AbilityDescription;
+	}
+	StrDetails = StrDetails $ "\nWeaknesses:";
+	for (i = 0; i < Detail.Weaknesses.Length; i++) {
+		StrDetails = StrDetails $ "\n=====" $ Detail.Weaknesses[i].AbilityName $ "=====\n" $ Detail.Weaknesses[i].AbilityDescription;
+	}
 
 	DialogData.strText = StrDetails;
 	DialogData.strImagePath = class'UIUtilities_Image'.static.ValidateImagePath(Detail.ChosenIcon);
