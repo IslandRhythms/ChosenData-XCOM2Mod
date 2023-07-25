@@ -25,7 +25,7 @@ static event OnLoadedSavedGame()
 /// </summary>
 static event InstallNewCampaign(XComGameState StartState)
 {
-	CheckUpdateOrCreateNewGameState();
+	StartState.CreateNewStateObject(class'XComGameState_ChosenData'); // General rule: we didn't create state, so don't submit
 }
 
 static event OnPostMission() {
