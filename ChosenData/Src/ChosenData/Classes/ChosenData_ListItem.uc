@@ -92,8 +92,6 @@ simulated function UpdateData()
 	}*/
 
 	//get country/affiliation flag, or attention flag
-	// do something else here to get the squad logo
-	// make sure logo has img:/// prefix
 	FlagImage = Data.ChosenIcon;
 
 	//get and set display strings

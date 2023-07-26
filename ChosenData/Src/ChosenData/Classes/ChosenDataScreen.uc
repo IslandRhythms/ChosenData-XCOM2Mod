@@ -34,11 +34,11 @@ simulated function OpenChosenDetails(ChosenData_ListItem Data) {
 	DialogData.eType = eDialog_Normal;
 	DialogData.strTitle = Detail.ChosenName;
 	DialogData.strAccept = class'UIDialogueBox'.default.m_strDefaultAcceptLabel;
-
+	StrDetails = StrDetails $ "\n++++++++++++++++++++++++++++";
 	for (i = 0; i < Detail.Strengths.Length; i++) {
 		StrDetails = StrDetails $ "\n=====" $ Detail.Strengths[i].AbilityName $ "=====\n" $ Detail.Strengths[i].AbilityDescription;
 	}
-	StrDetails = StrDetails $ "\nWeaknesses:";
+	StrDetails = StrDetails $ "\nWeaknesses:" $ "\n++++++++++++++++++++++++++++";
 	for (i = 0; i < Detail.Weaknesses.Length; i++) {
 		StrDetails = StrDetails $ "\n=====" $ Detail.Weaknesses[i].AbilityName $ "=====\n" $ Detail.Weaknesses[i].AbilityDescription;
 	}
