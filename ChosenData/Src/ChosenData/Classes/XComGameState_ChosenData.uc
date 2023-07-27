@@ -34,6 +34,7 @@ function UpdateChosenInformation() {
 	local String ChosenType;
 	local int Index;
 	local ChosenFiles File;
+	// local XComGameState TestGameState;
 	History = `XCOMHISTORY;
 	AbilityMgr = class'X2AbilityTemplateManager'.static.GetAbilityTemplateManager();
 
@@ -52,6 +53,9 @@ function UpdateChosenInformation() {
 				File.ChosenIcon = "img:///UILibrary_XPACK_StrategyImages.DarkEvent_Loyalty_Among_Thieves_Hunter";
 			} else if (File.ChosenType == "Assassin") {
 				File.ChosenIcon = "img:///UILibrary_XPACK_StrategyImages.DarkEvent_Loyalty_Among_Thieves_Assasin"; // THEY MISSPELLED ASSASSIN WTF. I WAS STUCK ON THIS LONGER THAN I SHOULD HAVE BEEN.
+				// TestGameState = class'XComGameStateContext_ChangeContainer'.static.CreateChangeState("Updating Chosen Strengths");
+				// ChosenState.GainNewStrengths(TestGameState, 3); // for testing
+				// `XCOMGAME.GameRuleset.SubmitGameState(TestGameState);
 			}
 			Strengths = ChosenState.GetChosenStrengths();
 			Weaknesses = ChosenState.GetChosenWeaknesses();
