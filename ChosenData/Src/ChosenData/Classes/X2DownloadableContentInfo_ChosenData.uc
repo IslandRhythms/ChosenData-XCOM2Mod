@@ -36,6 +36,7 @@ static event OnPostMission() {
 	local XComGameState NewGameState;
 	local XComGameState_ChosenData Information;
 
+	History = `XCOMHISTORY;
 	MissionTemplateManager = class'X2MissionTemplateManager'.static.GetMissionTemplateManager();
 	BattleData = XComGameState_BattleData(History.GetSingleGameStateObjectForClass(class'XComGameState_BattleData'));
 	MissionTemplate = MissionTemplateManager.FindMissionTemplate(BattleData.MapData.ActiveMission.MissionName);

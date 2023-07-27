@@ -13,7 +13,7 @@ simulated function InitChosenDataScreen()
 	ChosenDataList.m_eListType = eUIPersonnel_Scientists;
 	ChosenDataList.bIsNavigable = true;
 	// ChosenDataList.OnItemClicked = OnSquadSelected;
-	MC.FunctionString("SetScreenHeader", "Chosen Information");
+	MC.FunctionString("SetScreenHeader", "Chosen Data");
 }
 
 simulated function OnListItemClicked(UIList ContainerList, int ItemIndex) {
@@ -30,17 +30,16 @@ simulated function OpenChosenDetails(ChosenData_ListItem Data) {
 	local Texture2D StaffPicture;
 	local int i;
 	Detail = Data.Data;
-	StrDetails = "Strengths:";
+	StrDetails = "Strengths\n--------------------------------------------------------\n";
 	DialogData.eType = eDialog_Normal;
 	DialogData.strTitle = Detail.ChosenName;
 	DialogData.strAccept = class'UIDialogueBox'.default.m_strDefaultAcceptLabel;
-	StrDetails = StrDetails $ "\n++++++++++++++++++++++++++++";
 	for (i = 0; i < Detail.Strengths.Length; i++) {
-		StrDetails = StrDetails $ "\n=====" $ Detail.Strengths[i].AbilityName $ "=====\n" $ Detail.Strengths[i].AbilityDescription;
+		StrDetails = StrDetails $ Detail.Strengths[i].AbilityName $ "\n" $ Detail.Strengths[i].AbilityDescription $ "\n____________________________\n\n";
 	}
-	StrDetails = StrDetails $ "\nWeaknesses:" $ "\n++++++++++++++++++++++++++++";
+	StrDetails = StrDetails $ "\nWeaknesses\n--------------------------------------------------------\n";
 	for (i = 0; i < Detail.Weaknesses.Length; i++) {
-		StrDetails = StrDetails $ "\n=====" $ Detail.Weaknesses[i].AbilityName $ "=====\n" $ Detail.Weaknesses[i].AbilityDescription;
+		StrDetails = StrDetails $ Detail.Weaknesses[i].AbilityName $ "\n" $ Detail.Weaknesses[i].AbilityDescription $ "\n____________________________\n\n";
 	}
 
 	DialogData.strText = StrDetails;

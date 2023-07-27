@@ -51,7 +51,7 @@ function UpdateChosenInformation() {
 			} else if (File.ChosenType == "Hunter") {
 				File.ChosenIcon = "img:///UILibrary_XPACK_StrategyImages.DarkEvent_Loyalty_Among_Thieves_Hunter";
 			} else if (File.ChosenType == "Assassin") {
-				File.ChosenIcon = "img:///UILibrary_XPACK_StrategyImages.DarkEvent_Loyalty_Among_Thieves_Assassin";
+				File.ChosenIcon = "img:///UILibrary_XPACK_StrategyImages.DarkEvent_Loyalty_Among_Thieves_Assasin"; // THEY MISSPELLED ASSASSIN WTF. I WAS STUCK ON THIS LONGER THAN I SHOULD HAVE BEEN.
 			}
 			Strengths = ChosenState.GetChosenStrengths();
 			Weaknesses = ChosenState.GetChosenWeaknesses();
@@ -65,7 +65,7 @@ function UpdateChosenInformation() {
 				Detail.AbilityDescription = TraitTemplate.LocHelpText;
 				File.Weaknesses.AddItem(Detail);
 			}
-			File.ChosenLogo = "gfxTacticalHUD.chosen_logo";
+			File.ChosenLogo = "img:///gfxTacticalHUD.chosen_logo";
 			ChosenDocs.AddItem(File);
 		} else { // update info
 			ChosenDocs[Index].Strengths.Length = 0;
