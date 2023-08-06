@@ -28,23 +28,7 @@
     <Content Include="Config\XComEngine.ini" />
     <Content Include="Config\XComGame.ini" />
     <Content Include="Localization\XComGame.int" />
-    <Content Include="Src\ChosenData\Classes\ChosenDataScreen.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\ChosenData\Classes\ChosenData_ListItem.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\ChosenData\Classes\ChosenData_NavHelpHook.uc">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="Src\ChosenData\Classes\UISL_CommanderQuarter.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\ChosenData\Classes\X2DownloadableContentInfo_ChosenData.uc" />
-    <Content Include="Src\ChosenData\Classes\X2EventListener_EndOfMonth.uc">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Src\ChosenData\Classes\XComGameState_ChosenData.uc">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

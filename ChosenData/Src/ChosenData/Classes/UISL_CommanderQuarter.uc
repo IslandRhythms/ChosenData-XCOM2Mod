@@ -124,13 +124,8 @@ static protected function OnButtonClickedSimple  (optional StateObjectReference 
 
 static function OnButtonClicked()
 {
-	local ChosenDataScreen CDS;
-	if( `HQPRES.ScreenStack.IsNotInStack(class'ChosenDataScreen') )
-	{
-		CDS = `HQPRES.Spawn(class'ChosenDataScreen',`HQPRES);
-
-        `HQPRES.ScreenStack.Push(CDS);
-		CDS.InitChosenDataScreen();
+	if (Movie.Pres.ScreenStack.GetScreen(class 'UIChosenReveal') == none) {
+		`HQPRES.UIChosenInformation();
 	}
 
 }
