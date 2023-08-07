@@ -124,8 +124,6 @@ static protected function OnButtonClickedSimple  (optional StateObjectReference 
 
 static function OnButtonClicked()
 {
-	if (Movie.Pres.ScreenStack.GetScreen(class 'UIChosenReveal') == none) {
-		`HQPRES.UIChosenInformation();
-	}
+	`HQPRES.UIChosenInformation();
 
 }
